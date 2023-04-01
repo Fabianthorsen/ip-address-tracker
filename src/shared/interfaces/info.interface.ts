@@ -7,6 +7,10 @@ export interface GeoData {
     ip: string,
     timezone: string,
     location: string,
+    coordinates: {
+        lat: number,
+        lng: number
+    }
     isp: string
 }
 
