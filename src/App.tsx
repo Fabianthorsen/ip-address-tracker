@@ -1,11 +1,11 @@
-import { FormEvent, useEffect, useReducer, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import InfoList from "./Components/info-list/InfoList";
 import { GeoData } from "./shared/interfaces/info.interface";
 import { apiKey } from "./config";
 import Map from "./Components/map/Map";
 import InputForm from "./Components/input-form/InputForm";
 import Header from "./Components/UI/header/Header";
-import FloatingCard from "./Components/UI/floating-card/FloatingCard";
+import Card from "./Components/UI/card/Card";
 
 let dummy: GeoData = {
   ip: "89.11.196.92",
@@ -60,29 +60,29 @@ export default function App() {
     setState(geoData);
   }
 
-  useEffect(() => {
+  /*   useEffect(() => {
     initialFetch();
-  }, []);
+  }, []); */
 
   return (
-    <main className="grid grid-rows-3 h-screen">
-      {state && (
-        <FloatingCard>
-          <InfoList geoData={state} />
-        </FloatingCard>
-      )}
-      <Header title="IP Address Tracker">
+    <main className="grid grid-rows-5 h-screen w-full">
+      <Header
+        title="IP Address Tracker"
+        className="flex flex-col items-center relative row-span-2"
+      >
         <InputForm
           onChange={inputChangeHandler}
-          onSubmit={(e: FormEvent) => {
-            e.preventDefault();
-            console.log(state);
-          }}
+          onSubmit={fetchData}
           value={inputIp}
         />
+        {state && (
+          <Card className="w-10/12 z-20 py-3 mt-5 rounded-xl bg-white shadow-md">
+            <InfoList geoData={state} />
+          </Card>
+        )}
       </Header>
-      <section className="bg-slate-400 row-span-2 z-10">
-        <Map />
+      <section className="z-10 row-span-3">
+        <Map coordinates={state!.coordinates} />
       </section>
     </main>
   );

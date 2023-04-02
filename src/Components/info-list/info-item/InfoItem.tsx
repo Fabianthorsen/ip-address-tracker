@@ -3,14 +3,18 @@ import Info, { GeoData } from "../../../shared/interfaces/info.interface";
 
 interface InfoItemProps {
   info: Info;
+  className: string;
 }
 
 const InfoItem: FunctionComponent<InfoItemProps> = ({
   info: { title, content },
+  className,
 }) => {
   return (
-    <li>
-      <p className="text-xs">{title.toLocaleUpperCase()}</p>
+    <li className={className}>
+      <p className="text-2xs font-bold text-gray-500 tracking-widest">
+        {title.toLocaleUpperCase()}
+      </p>
       <h2 className="font-bold">{content}</h2>
     </li>
   );
