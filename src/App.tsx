@@ -6,18 +6,11 @@ import Map from "./Components/map/Map";
 import InputForm from "./Components/input-form/InputForm";
 import Header from "./Components/UI/header/Header";
 import Card from "./Components/UI/card/Card";
-
-let dummy: GeoData = {
-  ip: "89.11.196.92",
-  timezone: "UTC +02:00",
-  location: "Sandvika",
-  coordinates: { lat: 59.89, lng: 10.53 },
-  isp: "Altibox AS",
-};
+import Loading from "./Components/UI/loading/Loading";
 
 export default function App() {
-  let [inputIp, setInputIp] = useState("89.11.196.92");
-  let [state, setState] = useState<undefined | GeoData>(dummy);
+  let [inputIp, setInputIp] = useState("");
+  let [state, setState] = useState<undefined | GeoData>(undefined);
 
   function inputChangeHandler(event: { target: HTMLInputElement }) {
     setInputIp(event.target.value);
@@ -60,9 +53,9 @@ export default function App() {
     setState(geoData);
   }
 
-  /*   useEffect(() => {
+  useEffect(() => {
     initialFetch();
-  }, []); */
+  }, []);
 
   return (
     <main className="grid grid-rows-5 h-screen w-full">
@@ -81,8 +74,12 @@ export default function App() {
           </Card>
         )}
       </Header>
-      <section className="z-10 row-span-3">
-        <Map coordinates={state!.coordinates} />
+      <section
+        className={`z-10 row-span-3 ${
+          !state && "flex justify-center items-center"
+        }`}
+      >
+        {state ? <Map coordinates={state!.coordinates} /> : <Loading />}
       </section>
     </main>
   );
