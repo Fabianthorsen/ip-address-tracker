@@ -1,9 +1,10 @@
 import { FunctionComponent } from "react";
+import { fromCamelCaseToWords } from "../../../helpers/stringHelpers";
 import Info, { GeoData } from "../../../shared/interfaces/info.interface";
 
 interface InfoItemProps {
   info: Info;
-  className: string;
+  className?: string;
 }
 
 const InfoItem: FunctionComponent<InfoItemProps> = ({
@@ -13,7 +14,7 @@ const InfoItem: FunctionComponent<InfoItemProps> = ({
   return (
     <li className={className}>
       <p className="text-2xs font-bold text-gray-500 tracking-widest">
-        {title.toLocaleUpperCase()}
+        {fromCamelCaseToWords(title).toLocaleUpperCase()}
       </p>
       <h2 className="font-bold">{content}</h2>
     </li>

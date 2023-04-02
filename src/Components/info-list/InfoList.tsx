@@ -1,38 +1,25 @@
 import { FunctionComponent } from "react";
-import { GeoData } from "../../shared/interfaces/info.interface";
+import { createObjectsFromObject } from "../../helpers/infoHelpers";
+import { GeoData, Info } from "../../shared/interfaces/info.interface";
 import InfoItem from "./info-item/InfoItem";
 
 interface InfoCardProps {
   geoData: GeoData;
 }
 
-const InfoList: FunctionComponent<InfoCardProps> = ({
-  geoData: { ip, location, timezone, isp },
-}) => {
-  const itemClass = "py-2";
-  // TODO: Find a good way to loop over object
+const InfoList: FunctionComponent<InfoCardProps> = ({ geoData }) => {
+  const items = createObjectsFromObject<GeoData>(geoData, ["coordinates"]);
   return (
     <ul className="text-center">
-      <InfoItem
-        key={ip}
-        info={{ title: "ip address", content: ip }}
-        className={itemClass}
-      />
-      <InfoItem
-        key={location}
-        info={{ title: "location", content: location }}
-        className={itemClass}
-      />
-      <InfoItem
-        key={timezone}
-        info={{ title: "timezone", content: timezone }}
-        className={itemClass}
-      />
-      <InfoItem
-        key={isp}
-        info={{ title: "isp", content: isp }}
-        className={itemClass}
-      />
+      {items.map((entry) => {
+        return (
+          <InfoItem
+            className="py-2"
+            key={String(entry.key)}
+            info={{ title: String(entry.key), content: String(entry.value) }}
+          />
+        );
+      })}
     </ul>
   );
 };

@@ -1,12 +1,13 @@
 import { FormEvent, useEffect, useState } from "react";
-import InfoList from "./Components/info-list/InfoList";
-import { GeoData } from "./shared/interfaces/info.interface";
-import { apiKey } from "./config";
-import Map from "./Components/map/Map";
-import InputForm from "./Components/input-form/InputForm";
-import Header from "./Components/UI/header/Header";
+
 import Card from "./Components/UI/card/Card";
+import Header from "./Components/UI/header/Header";
 import Loading from "./Components/UI/loading/Loading";
+import InfoList from "./Components/info-list/InfoList";
+import InputForm from "./Components/input-form/InputForm";
+import Map from "./Components/map/Map";
+import { apiKey } from "./config";
+import { GeoData } from "./shared/interfaces/info.interface";
 
 export default function App() {
   let [inputIp, setInputIp] = useState("");
@@ -23,9 +24,9 @@ export default function App() {
     );
     const data = await resp.json();
     const geoData: GeoData = {
-      ip: data.ip,
-      timezone: "UTC " + data.location.timezone,
+      ipAddress: data.ip,
       location: data.location.city,
+      timezone: "UTC " + data.location.timezone,
       coordinates: {
         lat: Number(data.location.lat),
         lng: Number(data.location.lng),
@@ -41,9 +42,9 @@ export default function App() {
     );
     const data = await resp.json();
     const geoData: GeoData = {
-      ip: data.ip,
-      timezone: "UTC " + data.location.timezone,
+      ipAddress: data.ip,
       location: data.location.city,
+      timezone: "UTC " + data.location.timezone,
       coordinates: {
         lat: Number(Number(data.location.lat).toFixed(2)),
         lng: Number(Number(data.location.lng).toFixed(2)),
@@ -75,7 +76,7 @@ export default function App() {
         )}
       </Header>
       <section
-        className={`z-10 row-span-3 ${
+        className={`bg-white z-10 row-span-3 ${
           !state && "flex justify-center items-center"
         }`}
       >

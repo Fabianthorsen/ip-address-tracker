@@ -4,9 +4,10 @@ export interface Info {
 }
 
 export interface GeoData {
-    ip: string,
-    timezone: string,
+    [key: string]: unknown;
+    ipAddress: string,
     location: string,
+    timezone: string,
     coordinates: {
         lat: number,
         lng: number
