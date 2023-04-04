@@ -1,3 +1,4 @@
+import * as dotenv from "dotenv";
 import { FormEvent, useEffect, useState } from "react";
 
 import Card from "./components/UI/card/Card";
@@ -6,7 +7,6 @@ import Loading from "./components/UI/loading/Loading";
 import InfoList from "./components/info-list/InfoList";
 import InputForm from "./components/input-form/InputForm";
 import Map from "./components/map/Map";
-import { apiKey } from "./config";
 import { GeoData } from "./shared/interfaces/info.interface";
 
 export default function App() {
@@ -20,7 +20,7 @@ export default function App() {
   async function fetchData(event: FormEvent) {
     event.preventDefault();
     const resp = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${inputIp}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}&ipAddress=${inputIp}`
     );
     const data = await resp.json();
     const geoData: GeoData = {
@@ -38,7 +38,7 @@ export default function App() {
 
   async function initialFetch() {
     const resp = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}`
     );
     const data = await resp.json();
     const geoData: GeoData = {
