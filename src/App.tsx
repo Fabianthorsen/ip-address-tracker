@@ -74,9 +74,9 @@ export default function App() {
           value={inputIp}
         />
         {state && (
-          <aside className="w-10/12 md:w-3/4 z-20 py-3 mt-5 rounded-xl bg-white shadow-md">
+          <Card className="w-10/12 md:w-3/4 z-20 py-3 mt-5 rounded-xl bg-white shadow-md">
             <InfoList geoData={state} />
-          </aside>
+          </Card>
         )}
       </Header>
       <section
