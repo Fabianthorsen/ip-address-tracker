@@ -1,12 +1,12 @@
 import * as dotenv from "dotenv";
 import { FormEvent, useEffect, useState } from "react";
 
-import InfoList from "./components/info-list/infolist";
-import InputForm from "./components/input-form/inputform";
-import Map from "./components/map/map";
-import Card from "./components/ui/card/card";
-import Header from "./components/ui/header/header";
-import Loading from "./components/ui/loading/loading";
+import Card from "./Components/UI/card/Card";
+import Header from "./Components/UI/header/Header";
+import Loading from "./Components/UI/loading/Loading";
+import InfoList from "./Components/info-list/InfoList";
+import InputForm from "./Components/input-form/InputForm";
+import Map from "./Components/map/Map";
 import { GeoData } from "./shared/interfaces/info.interface";
 
 export default function App() {
