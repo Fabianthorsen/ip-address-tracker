@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github for solution](https://github.com/Fabianthorsen/ip-address-tracker)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live site](https://fantastic-faun-9f3938.netlify.app)
 
 ## My process
 
