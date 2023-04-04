@@ -1,6 +1,8 @@
+import { Icon, LatLngExpression } from "leaflet";
 import { FunctionComponent, useEffect, useMemo, useRef, useState } from "react";
-import { LatLngExpression } from "leaflet";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
+
+import locationIcon from "../../assets/icon-location.svg";
 import "./Map.styles.css";
 
 interface MapProps {

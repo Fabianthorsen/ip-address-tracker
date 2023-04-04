@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
+
 import { fromCamelCaseToWords } from "../../../helpers/stringHelpers";
-import Info, { GeoData } from "../../../shared/interfaces/info.interface";
+import Info from "../../../shared/interfaces/info.interface";
 
 interface InfoItemProps {
   info: Info;
