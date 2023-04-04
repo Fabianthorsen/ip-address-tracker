@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Github for solution](https://github.com/Fabianthorsen/ip-address-tracker)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -46,6 +46,7 @@ Users should be able to:
 - [ ] Improve solution to either look more like the design provded or improve with custom design
 - [ ] Exploring how to improve solution by using other hooks such as `useCallback` or `useMemo`
 - [ ] Redo the task in SolidJS
+- [ ] Change API to something that is more "freemium" as the current is quite expensive, and may result in this solution not working well
 
 ## Author
 
