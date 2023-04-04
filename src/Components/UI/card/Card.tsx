@@ -1,15 +1,12 @@
 import { FunctionComponent } from "react";
 
-interface FloatingCardProps {
+interface CardProps {
   className?: string;
   children?: React.ReactNode;
 }
 
-const FloatingCard: FunctionComponent<FloatingCardProps> = ({
-  children,
-  className,
-}) => {
+const Card: FunctionComponent<CardProps> = ({ children, className }) => {
   return <aside className={className}>{children}</aside>;
 };
 
-export default FloatingCard;
+export default Card;
