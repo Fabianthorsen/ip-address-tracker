@@ -2,7 +2,7 @@ import { FormEvent, FunctionComponent } from "react";
 
 import arrowIcon from "../../assets/icon-arrow.svg";
 import SVGIcon from "../ui/svg-icon/svgicon";
-import InputButton from "./input-button/InputButton";
+import InputButton from "./input-button/inputbutton";
 
 interface InputFormProps {
   //onSubmit: (event: FormEvent<Element>) => Promise<void>;

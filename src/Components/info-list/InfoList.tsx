@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 import { createObjectsFromObject } from "../../helpers/infoHelpers";
 import { GeoData } from "../../shared/interfaces/info.interface";
-import InfoItem from "./info-item/InfoItem";
+import InfoItem from "./info-item/infoitem";
 
 interface InfoCardProps {
   geoData: GeoData;
