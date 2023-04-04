@@ -1,7 +1,7 @@
 import { FormEvent, FunctionComponent } from "react";
 
 import arrowIcon from "../../assets/icon-arrow.svg";
-import SVGIcon from "../ui/svg-icon/SVGIcon";
+import SVGIcon from "../ui/svg-icon/svgicon";
 import InputButton from "./input-button/InputButton";
 
 interface InputFormProps {

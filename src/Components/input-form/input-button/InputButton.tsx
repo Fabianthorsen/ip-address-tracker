@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 import arrowIcon from "../../../assets/icon-arrow.svg";
-import SVGIcon from "../../ui/svg-icon/SVGIcon";
+import SVGIcon from "../../ui/svg-icon/svgicon";
 
 interface InputButtonProps {
   onChange: (event: { target: HTMLInputElement }) => void;
