@@ -1,4 +1,4 @@
 [build]
-  command = "vite build"
+  command = "tsc && vite build"
   functions = "netlify/functions"
   publish = "dist"
