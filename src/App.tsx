@@ -1,4 +1,3 @@
-import * as dotenv from "dotenv";
 import { FormEvent, useEffect, useState } from "react";
 
 import Card from "./Components/UI/card/Card";
@@ -19,12 +18,12 @@ export default function App() {
 
   async function fetchData(event: FormEvent) {
     event.preventDefault();
-    const resp = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=${
-        import.meta.env.VITE_API_KEY
-      }&ipAddress=${inputIp}`
-    );
-    const data = await resp.json();
+    const response = await fetch(`/.netlify/functions/fetch-ip?ip=${inputIp}`, {
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const data = await response.json();
     const geoData: GeoData = {
       ipAddress: data.ip,
       location: data.location.city,
