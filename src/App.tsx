@@ -20,7 +20,9 @@ export default function App() {
   async function fetchData(event: FormEvent) {
     event.preventDefault();
     const resp = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}&ipAddress=${inputIp}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${
+        import.meta.env.VITE_API_KEY
+      }&ipAddress=${inputIp}`
     );
     const data = await resp.json();
     const geoData: GeoData = {
@@ -38,7 +40,9 @@ export default function App() {
 
   async function initialFetch() {
     const resp = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${
+        import.meta.env.VITE_API_KEY
+      }`
     );
     const data = await resp.json();
     const geoData: GeoData = {
@@ -70,9 +74,9 @@ export default function App() {
           value={inputIp}
         />
         {state && (
-          <Card className="w-10/12 md:w-3/4 z-20 py-3 mt-5 rounded-xl bg-white shadow-md">
+          <aside className="w-10/12 md:w-3/4 z-20 py-3 mt-5 rounded-xl bg-white shadow-md">
             <InfoList geoData={state} />
-          </Card>
+          </aside>
         )}
       </Header>
       <section
